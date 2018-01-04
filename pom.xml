@@ -1,6 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -9,48 +8,94 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>spring-app</name>
-	
+
 	<description>Projeto REST com Spring</description>
-   
-    <organization>
+
+	<organization>
 		<name>LucasR10</name>
 		<url>https://github.com/LucasR10</url>
 	</organization>
-	
-<properties>
+
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		
-		
-		<!-- Spring  -->
+
+
+		<!-- Spring -->
 		<spring-framework.version>4.3.0.RELEASE</spring-framework.version>
-		
+
 		<!-- Servlet API -->
 		<servlet.version>3.1.0</servlet.version>
 
 		<!-- Logging -->
 		<log4j.version>2.6</log4j.version>
 		<jcl-over-slf4j.version>1.7.21</jcl-over-slf4j.version>
-		
+
 		<!-- JPA / Hibernate -->
-		<hibernate.version>5.1.0.Final</hibernate.version>
-		
-	     <!-- MySQL Driver -->
+		<hibernate.version>4.1.4.Final</hibernate.version>
+
+		<!-- MySQL Driver -->
 		<mysql-connector-java.version>5.1.39</mysql-connector-java.version>
-		
+
 	</properties>
 
 	<dependencies>
-		
-	<!-- Servlet API -->
+
+		<!-- Spring Core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring-framework.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<!-- Spring Web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<!-- Spring JDBC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<!-- Jackson JSON Processor -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+
+		<!-- Servlet API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${servlet.version}</version>
 		</dependency>
-		
-	<!-- Logging -->
+
+		<!-- Logging -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-slf4j-impl</artifactId>
@@ -71,21 +116,28 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${jcl-over-slf4j.version}</version>
 		</dependency>
-		
+
 		<!-- JPA / Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
 		<!-- MySQL Driver -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java.version}</version>
 		</dependency>
-		
+
+
 	</dependencies>
 
 
@@ -96,10 +148,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.6</version>
 				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<failOnMissingWebXml>true</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-    
+
 </project>
