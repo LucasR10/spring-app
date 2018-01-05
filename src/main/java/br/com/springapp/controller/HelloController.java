@@ -1,18 +1,18 @@
 package br.com.springapp.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 
-@Controller
+@RestController
 @RequestMapping(value="/hello")
 public class HelloController {
 	
-	@RequestMapping(value="/buscar" , produces = "application/json" )
+	@RequestMapping(value="/ok" , produces = "application/json" )
 	@ResponseBody		
 	public String ola(){
-		return "olá";
+		return "ok está ok!!";
 		
 	}
 

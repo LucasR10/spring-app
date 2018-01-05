@@ -23,7 +23,7 @@
 
 <!-- 	<filter-mapping> -->
 <!-- 		<filter-name>Spring OpenEntityManagerInViewFilter</filter-name> -->
-<!-- 		<url-pattern>/*</url-pattern> -->
+<!-- 		<url-pattern>/ws/*</url-pattern> -->
 <!-- 	</filter-mapping> -->
 
 	<listener>
