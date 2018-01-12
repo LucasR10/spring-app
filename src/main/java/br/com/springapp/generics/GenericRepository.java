@@ -6,12 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
-@Repository
-public abstract class GenericRepository <T, ID extends Serializable> implements CrudRepository<T, Serializable>	{
+public class GenericRepository <T, ID extends Serializable> implements CrudRepository<T, Serializable>	{
 
 	public GenericRepository(Class<T> persistedClass) {
 		this.persistedClass = persistedClass;
